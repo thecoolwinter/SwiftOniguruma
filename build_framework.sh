@@ -19,7 +19,7 @@ fi
 set -euo pipefail
 
 # Set some variables
-ONI_OUTPUT_PATH="./deps/oniguruma/src/.libs/libonig.5.dylib"
+ONI_OUTPUT_PATH="./deps/oniguruma/src/.libs/libonig.a"
 OUTPUT_PATH="./SwiftOnigurumaContainer.xcframework"
 ARCHIVE_PATH="./$OUTPUT_PATH.zip"
 
@@ -52,11 +52,11 @@ xcrun xcodebuild -create-xcframework \
     -headers "./.temp/include" \
     -output $OUTPUT_PATH
 
-status "Zipping $OUTPUT_PATH..."
-zip -r -q "$ARCHIVE_PATH" "$OUTPUT_PATH"
-
+#status "Zipping $OUTPUT_PATH..."
+#zip -r -q "$ARCHIVE_PATH" "$OUTPUT_PATH"
+#
 rm -rf .temp
-rm -rf "$OUTPUT_PATH"
-status "$ARCHIVE_PATH created!"
+#rm -rf "$OUTPUT_PATH"
+#status "$ARCHIVE_PATH created!"
 
 status "Done!"

@@ -14,11 +14,12 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftOniguruma",
-            dependencies: ["SwiftOnigurumaContainer"]
+            dependencies: ["C"]
         ),
+        .target(name: "C", dependencies: ["SwiftOnigurumaContainer"]),
         .binaryTarget(
             name: "SwiftOnigurumaContainer",
-            path: "SwiftOnigurumaContainer.xcframework.zip"
+            path: "SwiftOnigurumaContainer.xcframework"
         ),
         .testTarget(
             name: "SwiftOnigurumaTests",

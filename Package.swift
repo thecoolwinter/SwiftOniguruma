@@ -8,15 +8,19 @@ let package = Package(
     products: [
         .library(
             name: "SwiftOniguruma",
-            targets: ["SwiftOniguruma"]),
+            targets: ["SwiftOniguruma"])
+        ,
     ],
     dependencies: [],
     targets: [
         .target(
             name: "SwiftOniguruma",
-            dependencies: ["C"]
+            dependencies: ["Oniguruma"]
         ),
-        .target(name: "C", dependencies: ["SwiftOnigurumaContainer"]),
+        .target(
+            name: "Oniguruma",
+            dependencies: ["SwiftOnigurumaContainer"]
+        ),
         .binaryTarget(
             name: "SwiftOnigurumaContainer",
             path: "Libs/SwiftOnigurumaContainer.xcframework"

@@ -19,14 +19,14 @@ fi
 set -euo pipefail
 
 # Set some variables
-ONI_OUTPUT_PATH="./deps/oniguruma/src/.libs/libonig.a"
-OUTPUT_PATH="./SwiftOnigurumaContainer.xcframework"
-ARCHIVE_PATH="./$OUTPUT_PATH.zip"
+ONI_OUTPUT_PATH="./Libs/oniguruma/src/.libs/libonig.a"
+OUTPUT_PATH="./Libs/SwiftOnigurumaContainer.xcframework"
+#ARCHIVE_PATH="./$OUTPUT_PATH.zip"
 
 status "Bulding oniguruma..."
 
 # Build oniguruma into a fat binary (arm64 and x86_64)
-cd ./deps/oniguruma
+cd ./Libs/oniguruma
 
 autoreconf -vfi &> $QUIET_OUTPUT
 ./configure CC="gcc -arch arm64 -arch x86_64" &> $QUIET_OUTPUT
@@ -37,7 +37,7 @@ cd ../../
 status "Building oniguruma complete!"
 
 rm -rf "$OUTPUT_PATH"
-rm -rf "$ARCHIVE_PATH"
+#rm -rf "$ARCHIVE_PATH"
 
 status "Creating $OUTPUT_PATH"
 
@@ -45,7 +45,7 @@ rm -rf .temp
 
 mkdir .temp
 mkdir .temp/include
-cp ./deps/oniguruma/src/oniguruma.h ./.temp/include/
+cp ./Libs/oniguruma/src/oniguruma.h ./.temp/include/
 
 xcrun xcodebuild -create-xcframework \
     -library $ONI_OUTPUT_PATH \

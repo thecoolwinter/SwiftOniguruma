@@ -19,7 +19,7 @@ let package = Package(
         .target(name: "C", dependencies: ["SwiftOnigurumaContainer"]),
         .binaryTarget(
             name: "SwiftOnigurumaContainer",
-            path: "SwiftOnigurumaContainer.xcframework"
+            path: "Libs/SwiftOnigurumaContainer.xcframework"
         ),
         .testTarget(
             name: "SwiftOnigurumaTests",

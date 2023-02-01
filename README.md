@@ -13,4 +13,4 @@ To build the oniguruma dependency, run the `build_framework.sh` script from the 
 
 ### License
 
-This repository is licensed under the GNU General Public License v3.0.
+This repository is licensed under the MIT License.
